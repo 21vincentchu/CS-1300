@@ -1,33 +1,44 @@
 # Vincent Chu
-# Fall 2025
+# FALL 2025
 # CS1300
 # Assignment: A3
+def checkNumPositive(number: int):
+    if number <= 0:
+        return "Please enter a positive integer"
+    else: 
+        return None
 
-def main():
-    #prompt user for POSITIVE integers
-    while True:
-        
-        m = int(input("Enter the first number:"))
-        
-        n = int(input("Enter the second number:"))
-        
-        if m <=0 or n <=0:
-            print("Ensure both numbers are positive!")
-            continue
-        else:
-            break
+def print_Matrix_and_factors(m : int, n : int):
+    factors = []
     
-    
-    #print multiplication table for N from 1 to M and add valid factors to our list
-    validFactor = []
+    for num in range(1, m+1):
+        print(f"{n} * {num} = {n*num}")
+        
     for num in range(1, n+1):
-        print(f"{n} * {num} = {n * num}")
-        
-        #check if its a valid factor of n
         if n % num == 0:
-            validFactor.append(num)
+            factors.append(num)
+            
+    print(f"factors of {n} are {factors}")
+
     
-    print(f"Factors of {n} are: {validFactor}")
+def main():
+    #read in two integers, must be positive, if not, loop continues.
+    while True:
+        m = int(input("Enter a positive integer: "))
+        error = checkNumPositive(m)
+        if error:
+            print(error)
+            continue
+        
+        n = int(input("Enter a positive integer: "))
+        error = checkNumPositive(n)
+        if error:
+            print(error)
+            continue
+        
+        break
     
+    print_Matrix_and_factors(m, n)
+
 if __name__ == "__main__":
     main()

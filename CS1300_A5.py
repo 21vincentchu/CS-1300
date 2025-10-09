@@ -3,12 +3,12 @@
 # CS1300
 # Assignment A5
 
-def composite(number : int) -> bool:
-    if number <= 1:
+def composite(n : int) -> bool:
+    if n <= 1:
         return False
     
-    for num in range(2, number-1):
-        if number % num == 0:
+    for num in range(2, n-1):
+        if n % num == 0:
              return True
 
     return False
@@ -21,7 +21,7 @@ def positiveNum(number : int) -> bool:
     Returns: None if pos, error if neg
     '''
     if number <= 0:
-        return f"***Error. You entered {number} but a positive integer is required. "
+        return f"Error. You entered {number} but a positive integer is required. "
     else: 
         return None
 
